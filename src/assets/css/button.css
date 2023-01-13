@@ -1,0 +1,42 @@
+button {
+  width: 100%;
+  padding: 15px;
+  font-weight: 500;
+  font-size: 15px;
+  background: inherit;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.button-grey {
+  background-color: #F6F6F9;
+  border: 1px solid #e5e5e5;
+}
+
+.button-pink {
+  background-color: #ebfff3;
+  border: 1px solid #68DB96;
+}
+
+.button-main {
+  background-color: #68DB96;
+  color: #fff;
+  border: none;
+}
+
+.button-outline {
+  background-color: #ebfff3;
+  color: #68DB96;
+  border: 1px solid #68DB96;
+}
+
+.button-text {
+  padding: 5px 0;
+  display: inline-block;
+  width: 80%;
+}

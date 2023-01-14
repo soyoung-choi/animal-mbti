@@ -40,14 +40,22 @@ export default {
 </script>
 
 <style scoped>
+.title {
+	margin-bottom: 30px;
+}
 .card {
 	border: 1px solid #e5e5e5;
 	padding: 40px;
 	margin-bottom: 20px;
+	border-radius: 5px;
 }
 
 .card .img-wrap {
 	width: 150px;
-	padding-top: 50px;
+	padding: 50px 0 0 0;
+}
+
+.card .mbti {
+	padding: 10px 0;
 }
 </style>

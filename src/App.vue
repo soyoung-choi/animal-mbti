@@ -13,6 +13,7 @@ import '@/assets/css/text.css'
 import '@/assets/css/mobile.css'
 import '@/assets/css/distance.css'
 import '@/assets/css/badge.css'
+import '@/assets/css/icon.css'
 
 export default {}
 </script>

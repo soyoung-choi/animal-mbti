@@ -1,7 +1,11 @@
 .color-main {
-  color: 68DB96;
+  color: #68DB96;
 }
 
 .color-grey {
-  color: #ccc;
+  color: #B0BAD2;
+}
+
+.bg-grey {
+  background-color: #F6F6F9;
 }

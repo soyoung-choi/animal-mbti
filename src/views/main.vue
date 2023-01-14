@@ -27,17 +27,19 @@
 			</template>
 
 			<!-- 질문 -->
-			<template v-if="step == 'question'">
+			<section v-if="step == 'question'" class="question">
 				<article>
+					<div class="count">
+						<span class="color-main">{{ count + 1 }}</span>
+						<span class="color-grey">/12</span>
+					</div>
+
 					<el-progress
 						:text-inside="false"
 						:stroke-width="20"
 						:percentage="progress"
 					></el-progress>
-					<div>
-						<span class="color-main">{{ count + 1 }}</span>
-						<span class="color-grey">/12</span>
-					</div>
+
 					<div class="title-wrap">
 						<h2 class="sub-title">{{ GE_QESTIONS[count].title }}</h2>
 					</div>
@@ -54,45 +56,48 @@
 						</span>
 					</button>
 				</article>
-			</template>
+			</section>
 
 			<!-- 결과 -->
 			<template v-if="step == 'result'">
-				<article v-if="c_result">
-					<div class="title-wrap">
-						<h2 class="title">나의 MBTI 동물 유형은?</h2>
+				<article v-if="c_result" class="result">
+					<div class="img-wrap">
+						<img :src="require(`@/assets/images/${c_result.img}`)" />
 					</div>
-					<h3>{{ c_result.animal }}</h3>
+
+					<div class="title-wrap">
+						<h1 class="title">{{ c_result.animal }}</h1>
+					</div>
+
 					<div class="mbti">
-						<span class="pr-10">{{ c_result.explain }}</span>
+						<strong class="pr-10">{{ c_result.explain }}</strong>
 						<strong class="color-main">{{ c_result.mbti }}</strong>
 					</div>
 
 					<p>{{ c_result.features }}</p>
-					<div class="img-wrap">
-						<img :src="require(`@/assets/images/${c_result.img}`)" />
+				</article>
+
+				<article v-if="c_soulmate" class="soulmate">
+					<h2 class="pb-20">나와 제일 잘 맞는 소울메이트는?</h2>
+
+					<div class="bg-grey">
+						<h1 class="title">{{ c_soulmate.animal }}</h1>
+
+						<div class="mbti">
+							<strong class="pr-10">{{ c_soulmate.explain }}</strong>
+							<strong class="color-main">{{ c_soulmate.mbti }}</strong>
+						</div>
+
+						<div class="img-wrap">
+							<img :src="require(`@/assets/images/${c_soulmate.img}`)" />
+						</div>
+
+						<p>{{ c_soulmate.features }}</p>
 					</div>
 				</article>
 
-				<article v-if="c_soulmate">
-					<div class="title-wrap">
-						<h2 class="title">나와 제일 잘 맞는 소울메이트는?</h2>
-					</div>
-					<h3>{{ c_soulmate.animal }}</h3>
-
-					<div class="mbti">
-						<span class="pr-10">{{ c_soulmate.explain }}</span>
-						<strong class="color-main">{{ c_soulmate.mbti }}</strong>
-					</div>
-
-					<p>{{ c_soulmate.features }}</p>
-					<div class="img-wrap">
-						<img :src="require(`@/assets/images/${c_soulmate.img}`)" />
-					</div>
-				</article>
-
-				<div v-if="count == 11">
-					<button class="button-grey" @click="$router.go('/')">다시하기</button>
+				<div v-if="count == 12">
+					<button class="button-main" @click="$router.go('/')">다시하기</button>
 				</div>
 			</template>
 		</div>
@@ -180,7 +185,7 @@ export default {
 					}
 				}
 			}
-			if (this.count >= 11) {
+			if (this.count >= 12) {
 				this.step = 'result'
 			}
 		},
@@ -246,5 +251,20 @@ export default {
 
 .mbti {
 	padding: 10px 0;
+}
+
+.bg-grey {
+	padding: 30px;
+	border-radius: 5px;
+}
+
+.result {
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 50px;
+}
+
+.count {
+	text-align: center;
+	margin-bottom: 10px;
 }
 </style>
